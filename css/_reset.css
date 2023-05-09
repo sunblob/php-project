@@ -1,0 +1,28 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+  display: inline-block;
+  cursor: pointer;
+
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: #cecece;
+}

@@ -1,0 +1,7 @@
+.header-menu {
+  display: flex;
+}
+
+.menu-item {
+  padding: 8px 16px;
+}

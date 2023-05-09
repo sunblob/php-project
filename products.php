@@ -5,7 +5,7 @@ include('partials/header.php');
 ?>
 
 <main>
-  index
+  Products
 </main>
 
 <?php

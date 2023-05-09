@@ -15,8 +15,10 @@ include('inc/config.php');
 
       echo count($categories);
 
-      for ($i = 0; $i < count($categories); $i++) {
-        echo '<div>' . $categories[$i] . '</div>';
+      echo $categories[0]->name;
+
+      for ($i = 0; $i <= count($categories); $i++) {
+        echo '<div>' . $categories[$i]->name . '</div>';
       }
       ?>
     </div>

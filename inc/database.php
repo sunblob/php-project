@@ -24,14 +24,15 @@ class Database
     return self::$instance;
   }
 
-  function query_select(string $str)
+  function query_select(string $str): array
   {
     try {
       $query =  $this->conn->query($str);
-      $contact = $query->fetchAll(PDO::FETCH_OBJ);
-      return $contact;
+      $result = $query->fetchAll(PDO::FETCH_OBJ);
+      return $result;
     } catch (PDOException $e) {
       print_r($e->getMessage());
+      return [];
     }
   }
 
