@@ -1,11 +1,13 @@
 <?php
-
+include('inc/config.php');
 include('partials/header.php');
 
 ?>
 
 <main>
-  index
+  <?php
+  $category->print_categories();
+  ?>
 </main>
 
 <?php
