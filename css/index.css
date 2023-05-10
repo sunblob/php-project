@@ -10,3 +10,16 @@
   --dark-color: #161618;
   --light-color: #fffff5db;
 }
+
+.category-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.category-item {
+  border-radius: 6px;
+  height: 200px;
+  background-position: center;
+  background-size: cover;
+}

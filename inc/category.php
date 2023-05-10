@@ -17,12 +17,16 @@ class Category
   function print_categories()
   {
     $categories = $this->get_categories();
+
+    echo '<div class="category-list">';
+
     foreach ($categories as $item) {
-      echo '<div>' . $item->name;
-      echo '<div style="background-image: url(\'' . $item->image . '\')">';
-      // echo '<img src="' . $item->image . '">';
+      echo '<div class="category-item" style="background-image: url(\'' . $item->image . '\')">' . $item->name;
+      echo '<div ></div>';
       echo '</div>';
     }
+
+    echo '</div>';
   }
 }
 

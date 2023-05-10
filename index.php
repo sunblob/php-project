@@ -5,9 +5,15 @@ include('partials/header.php');
 ?>
 
 <main>
-  <?php
-  $category->print_categories();
-  ?>
+  <section class="banner">
+
+  </section>
+  <section class="container">
+    <?php
+    $category->print_categories();
+    ?>
+  </section>
+
 </main>
 
 <?php
