@@ -19,8 +19,8 @@ include('inc/config.php');
 
 <body>
 
-  <header>
-    <nav>
+  <header class="header">
+    <nav class="container">
       <ul class="header-menu">
         <?php
         print_header_menu($header_menu);

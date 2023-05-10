@@ -27,6 +27,6 @@ function print_header_menu($menu)
 {
   $menu_items = $menu->get_menu();
   foreach ($menu_items as $page => $url) {
-    echo '<li><a href="' . $url . '" class="menu-item">' . $page . '</a></li>';
+    echo '<li><a href="' . $url . '" class="menu-link">' . $page . '</a></li>';
   }
 }

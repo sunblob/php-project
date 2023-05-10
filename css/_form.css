@@ -1,0 +1,23 @@
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input {
+  margin-bottom: 8px;
+  padding: 4px;
+  outline: none;
+  border: none;
+  font-size: 18px;
+  border-radius: 8px;
+  box-shadow: 0 0 0 1px black;
+}
+
+.form-input:focus {
+  box-shadow: 0 0 0 1px blue;
+}
+
+.form-input-group {
+  display: flex;
+  margin-bottom: 8px;
+}

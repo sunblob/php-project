@@ -1,7 +1,21 @@
-.footer-body {
-  display: flex;
+.footer {
+  padding: 16px 0;
+  background-color: var(--dark-color);
 }
 
 .footer-copy {
   margin-right: 16px;
+  color: var(--light-color);
+}
+
+.footer-author {
+  color: var(--light-color);
+}
+
+.footer a {
+  color: var(--light-color);
+}
+
+.footer a:hover {
+  color: #ffffff;
 }

@@ -14,15 +14,33 @@ ul {
   list-style: none;
 }
 
+main {
+  padding: 16px 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  margin-bottom: 8px;
+}
+
 a {
   text-decoration: none;
   color: #000;
   display: inline-block;
   cursor: pointer;
-
   transition: color 0.2s ease-in-out;
 }
 
 a:hover {
   color: #cecece;
+}
+
+.map {
+  width: 100%;
+  margin: 16px 0;
 }

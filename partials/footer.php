@@ -1,4 +1,4 @@
-<footer>
+<footer class="footer">
   <div class="container flex space-between align-center">
     <div class="flex">
       <div class="footer-copy"><span>&#169;</span> All rights reserved.</div>
@@ -7,7 +7,7 @@
       </div>
     </div>
     <nav>
-      <ul class="flex">
+      <ul class="">
         <?php
         print_header_menu($footer_menu);
         ?>
