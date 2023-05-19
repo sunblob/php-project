@@ -9,7 +9,7 @@
     <nav>
       <ul class="">
         <?php
-        print_header_menu($footer_menu);
+        print_menu($footer_menu);
         ?>
       </ul>
     </nav>

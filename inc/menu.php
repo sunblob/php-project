@@ -12,18 +12,21 @@ class Menu
     return $this->menu;
   }
 }
+
 $header_menu = new Menu(array(
   "Home" => "index.php",
   "Products" => "products.php",
   "About" => "about.php",
   "Contact" => "contact.php",
 ));
+
 $footer_menu = new Menu(array(
   "Products" => "products.php",
   "About" => "about.php",
   "Contact" => "contact.php",
 ));
-function print_header_menu($menu)
+
+function print_menu($menu)
 {
   $menu_items = $menu->get_menu();
   foreach ($menu_items as $page => $url) {

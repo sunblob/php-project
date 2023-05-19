@@ -23,7 +23,7 @@ include('inc/config.php');
     <nav class="container">
       <ul class="header-menu">
         <?php
-        print_header_menu($header_menu);
+        print_menu($header_menu);
         ?>
       </ul>
     </nav>
