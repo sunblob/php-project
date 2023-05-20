@@ -26,7 +26,7 @@ class User
 
   function create_user($data)
   {
-    $query = "INSERT INTO users (user_name, user_email, user_password) VALUES (:user_name, :user_email, :user_password)";
+    $query = "INSERT INTO users (login, email, password) VALUES (:user_login, :user_email, :user_password)";
     $this->db->query_create($query, $data);
   }
 }

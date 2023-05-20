@@ -1,7 +1,17 @@
 <?php
+require('inc/config.php');
+session_start();
+$current_user = null;
+if (isset($_SESSION['id'])) {
+  $current_user = $user->get_by_id($_SESSION['id'])[0];
+}
+// if ($current_user == null || $current_user->role != 'ADMIN') {
+//   header("Location: no-permission.php");
+// }
 
-include('inc/config.php');
-
+if ($current_user == null) {
+  header("Location: no-permission.php");
+}
 ?>
 
 <main>
@@ -13,13 +23,10 @@ include('inc/config.php');
 
       $categories = $db->query_select("SELECT * FROM categories");
 
-      echo count($categories);
 
-      echo $categories[0]->name;
-
-      for ($i = 0; $i <= count($categories); $i++) {
-        echo '<div>' . $categories[$i]->name . '</div>';
-      }
+      print_r($_SESSION);
+      echo $_SESSION['id'];
+      echo $current_user->login;
       ?>
     </div>
   </section>

@@ -8,7 +8,6 @@
         <div class="col-100">
           <h1>Thank you for registration</h1>
           <p>You can login now</p><br>
-          <a href="login.php">Login</a>
         </div>
       </div>
     </section>

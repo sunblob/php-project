@@ -21,4 +21,4 @@ if (ini_get("session.use_cookies")) {
 // Finally, destroy the session.
 session_destroy();
 echo 'Logout';
-header("Location: login.php");
+header("Location: ../../index.php");

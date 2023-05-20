@@ -22,4 +22,29 @@
   display: inline-block;
   margin-left: auto;
   cursor: pointer;
+  opacity: 1;
+  pointer-events: all;
+}
+
+.auth-btn.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.menu-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--light-color);
+  padding: 0 16px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu-icon:hover {
+  color: #ffffff;
+}
+
+.menu-icon svg {
+  fill: inherit;
 }

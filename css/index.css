@@ -56,6 +56,37 @@
   cursor: pointer;
 }
 
+.modal-body {
+  position: relative;
+}
+
+.modal-login,
+.modal-register {
+  /* position: absolute; */
+  transition: 0.1s ease-in-out;
+}
+
+.modal-login.open,
+.modal-register.open {
+  display: block;
+}
+
+.modal-login.hide,
+.modal-register.hide {
+  display: none;
+}
+
+.login-btn,
+.register-btn {
+  color: blue;
+  cursor: pointer;
+}
+
+.login-btn:hover,
+.register-btn:hover {
+  color: darkblue;
+}
+
 .category-list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

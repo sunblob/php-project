@@ -10,17 +10,18 @@ $data = [
 $user_name = "";
 if (isset($_POST['log_user'])) {
 
-  // echo $data['user_email'];
-
   $found_user = $user->get_by_email($data['user_email']);
-  // $found_user = $user->get_users();
 
   if (count($found_user) != 0 && $found_user[0]->password == $data['user_password']) {
-    $user_name = $found_user[0]->first_name;
+    $user_login = $found_user[0]->login;
+    $user_id = $found_user[0]->id;
+
     $_SESSION['valid'] = true;
-    $_SESSION['user_name'] = $user_name;
+    $_SESSION['user_login'] = $user_login;
+    $_SESSION['id'] = $user_id;
+
     header("Location: ../../index.php");
   } else {
-    echo 'Wrong password';
+    header("Location: ../../wrong-password.php");
   }
 }
