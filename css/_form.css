@@ -19,5 +19,10 @@
 
 .form-input-group {
   display: flex;
+  flex-direction: column;
   margin-bottom: 8px;
+}
+
+.form-label {
+  margin-bottom: 6px;
 }

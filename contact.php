@@ -27,7 +27,7 @@ include('partials/header.php');
       <input class="form-input" type="email" placeholder="Your email" id="contact_email" name="contact_email" required>
       <textarea class="form-input" placeholder="Your message" id="contact_message" name="contact_message" rows="5" required></textarea>
       <div class="form-input-group">
-        <input id="check" name="check" type="checkbox" required><label for="check">I agree to the processing of personal data.</label>
+        <label for="check"><input id="check" name="check" type="checkbox" required>I agree to the processing of personal data.</label>
       </div>
 
       <input class="btn" type="submit" value="Submit" name="contact_us">

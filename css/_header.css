@@ -7,11 +7,19 @@
   display: flex;
 }
 
-.menu-link {
+.menu-link,
+.auth-btn {
   padding: 8px 16px;
   color: var(--light-color);
 }
 
-.menu-link:hover {
+.menu-link:hover,
+.auth-btn:hover {
   color: #ffffff;
+}
+
+.auth-btn {
+  display: inline-block;
+  margin-left: auto;
+  cursor: pointer;
 }

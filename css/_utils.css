@@ -35,6 +35,14 @@
   justify-content: space-between;
 }
 
+.ml-auto {
+  margin-left: auto;
+}
+
+.mr-auto {
+  margin-right: auto;
+}
+
 .container {
   max-width: 1200px;
   width: 100%;
