@@ -38,11 +38,15 @@
   color: var(--light-color);
   padding: 0 16px;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
 }
 
 .menu-icon:hover {
   color: #ffffff;
+}
+
+.menu-icon a {
+  color: inherit;
+  transition: all 0.3s ease-in-out;
 }
 
 .menu-icon svg {
