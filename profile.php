@@ -1,15 +1,25 @@
 <?php
 include('partials/header.php');
 if ($current_user == null) {
-  header("Location: index.php");
+  return header("Location: index.php");
 }
 ?>
 
 <main>
   <section class="container">
-    Profile
+    <h1>Profile</h1>
 
     <form action="inc/profile/update.php" method="post" enctype="multipart/form-data">
+      <div class="form-input-group">
+        <?php
+        if ($current_user->image == null) {
+          echo '<img class="profile-image" src="images/no-profile-image.jpg" alt="">';
+        } else {
+          echo '<img class="profile-image" src="' . $current_user->image . '" alt="user_image">';
+        }
+        ?>
+        <input type="file" name="profile_image" id="profile_image">
+      </div>
       <div class="form-input-group">
         <label class="form-label" for="">Login</label>
         <?php
@@ -34,6 +44,12 @@ if ($current_user == null) {
         echo '<input class="form-input" type="text" name="profile_last_name" value="' . $current_user->last_name . '" placeholder="First name">'
         ?>
       </div>
+      <?php
+      echo '<input type="hidden" name="user_id" value="' . $current_user->id . '"' . '>';
+      ?>
+      <?php
+      echo '<input type="hidden" name="user_image" value="' . $current_user->image . '"' . '>';
+      ?>
       <div class="form-input-group">
         <input class="btn" type="submit" value="Update" name="update_profile">
       </div>

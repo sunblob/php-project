@@ -46,6 +46,16 @@ class Database
     }
   }
 
+  function query_update(string $str, $data)
+  {
+    try {
+      $query_run = $this->conn->prepare($str);
+      $query_run->execute($data);
+    } catch (PDOException $e) {
+      print_r($e->getMessage());
+    }
+  }
+
   function query_delete(string $str)
   {
     try {

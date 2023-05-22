@@ -1,17 +1,31 @@
 <?php
+include('../config.php');
+
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
 
 if (isset($_POST['update_profile'])) {
-  if (isset($_POST['profile_image'])) {
-    $target_dir = "images/";
+  $image_path = $_POST['user_image'];
 
-    $target_file = $target_dir . basename($_FILES["profile_image"]["name"]);
-
-    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-    $check = getimagesize($_FILES["profile_image"]["tmp_name"]);
-
-    if ($check) {
-    }
+  if (file_exists($_FILES['profile_image']['tmp_name']) || is_uploaded_file($_FILES['profile_image']['tmp_name'])) {
+    $image_path = upload_image('../../images/profile/', 'profile_image');
   }
+
+  echo $image_path;
+
+  $data = [
+    'id' => $_POST['user_id'],
+    'first_name' => $_POST['profile_first_name'],
+    'last_name' => $_POST['profile_last_name'],
+    'image' => $image_path,
+  ];
+
+  echo $_POST['profile_first_name'];
+
+  $db = Database::get_db();
+
+  $db->query_update('UPDATE users SET first_name=:first_name, last_name=:last_name, image=:image WHERE id=:id', $data);
+
+  header('Location: ../../profile.php');
 }
