@@ -57,11 +57,18 @@ class Product
 
     return $this->db->query_select($query);
   }
+
+  function get_favorite_products($user_id)
+  {
+    $query = 'SELECT *, p.image as image FROM products p JOIN favorite_products fp ON p.id = fp.product_id JOIN users u ON u.id = fp.user_id WHERE u.id=' . $user_id;
+
+    return $this->db->query_select($query);
+  }
 }
 
 $product = new Product();
 
-function print_filtered_products($products)
+function print_filtered_products($products, $show_fav = false)
 {
   foreach ($products as $p) {
     echo '<div class="product-item">';
@@ -70,7 +77,24 @@ function print_filtered_products($products)
     echo '<div class="product-item__info">';
     echo '<div class="flex space-between align-center">';
     echo '<h3 class="product-name">' . $p->name . '</h3>';
-    echo '<div class="product-fav" style="background-image: url(\'images/icons/heart-outline.svg\')"></div>';
+
+    if ($show_fav) {
+      if ($p->is_favorite) {
+        echo '<form method="post" action="inc/products/remove-fav.php" class="fav-form">';
+        echo '<input class="fav-icon" type="image" id="add-fav" name="add-fav" src="images/icons/heart.svg">';
+        echo '<input type="hidden" name="user_id" value="' . $_SESSION['id'] . '" >';
+        echo '<input type="hidden" name="product_id" value="' . $p->id . '" >';
+        echo '</form>';
+        // echo '<div class="product-fav fav" style="background-image: url(\'images/icons/heart.svg\')"></div>';
+      } else {
+        echo '<form method="post" action="inc/products/add-fav.php" class="fav-form">';
+        echo '<input class="fav-icon" type="image" id="add-fav" name="add-fav" src="images/icons/heart-outline.svg">';
+        echo '<input type="hidden" name="user_id" value="' . $_SESSION['id'] . '" >';
+        echo '<input type="hidden" name="product_id" value="' . $p->id . '" >';
+        echo '</form>';
+        // echo '<div class="product-fav" style="background-image: url(\'images/icons/heart-outline.svg\')"></div>';
+      }
+    }
 
     echo '</div>';
     echo '<div class="product-description">' . $p->description . '</div>';

@@ -3,6 +3,26 @@
 include('partials/header.php');
 
 $filtered_products = $product->get_filtered_products($_GET['product_name'], $_GET['category']);
+
+$favorite = [];
+
+
+
+if (isset($_SESSION['id'])) {
+  // map the return value so we only take ids 
+  $favorite = array_map(fn ($value) => $value->id, $product->get_favorite_products($_SESSION['id']));
+}
+
+$show_fav = isset($_SESSION['id']);
+
+foreach ($filtered_products as $p) {
+  if (in_array($p->id, $favorite)) {
+    $p->is_favorite = true;
+  } else {
+    $p->is_favorite = false;
+  }
+}
+
 ?>
 
 <main>
@@ -45,7 +65,7 @@ $filtered_products = $product->get_filtered_products($_GET['product_name'], $_GE
       <div class="product-list">
         <?php
 
-        print_filtered_products($filtered_products);
+        print_filtered_products($filtered_products, $show_fav);
         ?>
       </div>
     </div>
