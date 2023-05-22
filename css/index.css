@@ -141,3 +141,70 @@
 .question-item.open .question-answer {
   max-height: 500px;
 }
+
+.products {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 24px;
+}
+
+.product-list {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 300px));
+}
+
+.product-item {
+  border-radius: 8px;
+  padding-top: 16px;
+  overflow: hidden;
+  border: 1px solid black;
+}
+
+.product-item__image {
+  display: block;
+  margin: 0 auto;
+  width: 250px;
+  height: 250px;
+  margin-bottom: 16px;
+}
+
+.product-item__info {
+  padding: 16px;
+  border-top: 1px solid black;
+}
+
+.product-name {
+  font-size: 24px;
+}
+
+.product-description {
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 8px;
+  min-height: 56px;
+}
+
+.product-stock {
+  color: red;
+  font-size: 20px;
+}
+
+.product-price {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.product-fav {
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.product-fav:hover {
+  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+}

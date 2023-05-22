@@ -31,3 +31,10 @@
 .form-label {
   margin-bottom: 6px;
 }
+
+select {
+  font-size: 18px;
+  border-radius: 8px;
+  padding: 6px;
+  border: 1px solid black;
+}

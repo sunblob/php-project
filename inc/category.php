@@ -41,7 +41,7 @@ class Category
 
     foreach ($categories as $item) {
       echo '<div class="category-item" style="background-image: url(\'' . $item->image . '\')">' . $item->name;
-      echo '<div></div>';
+      echo '<a class="btn" href="products.php?category=' . $item->id . '">Go to</a>';
       echo '</div>';
     }
 
