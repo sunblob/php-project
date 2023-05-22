@@ -108,3 +108,36 @@
   object-position: center;
   margin-bottom: 24px;
 }
+
+.question-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.question-item {
+  border-radius: 8px;
+  border: 1px solid gray;
+  overflow: hidden;
+}
+
+.question-title {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 16px 24px;
+  background-color: #e4e4ff;
+  cursor: pointer;
+}
+
+.question-answer {
+  transition: all 0.3s ease-in-out;
+  max-height: 0;
+}
+
+.answer {
+  padding: 16px 24px;
+}
+
+.question-item.open .question-answer {
+  max-height: 500px;
+}

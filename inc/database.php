@@ -8,7 +8,7 @@ class Database
   private function __construct()
   {
     try {
-      $this->conn = new PDO('mysql:host=localhost;dbname=shop;charset=utf8', 'root', '');
+      $this->conn = new PDO('mysql:host=localhost;dbname=bar;charset=utf8', 'root', '');
     } catch (PDOException $e) {
       var_dump($e->getMessage());
     }

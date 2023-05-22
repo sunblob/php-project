@@ -16,7 +16,21 @@ class Product
 
   function create_product($data)
   {
-    $this->db->query_create("", $data);
+    $query = "INSERT INTO products (name, description, price, in_stock, image, category_id) VALUES (:name, :description, :price, :in_stock, :image, :category_id)";
+
+    $this->db->query_create($query, $data);
+  }
+
+  function update_product(mixed $data)
+  {
+    $query = 'UPDATE categories SET name=:name, description=:description, price=:price, in_stock=:in_stock, image=:image, category_id=:category_id WHERE id=:id';
+
+    $this->db->query_update($query, $data);
+  }
+
+  function delete_product(string $id)
+  {
+    $this->db->query_delete("DELETE FROM products WHERE id=" . $id);
   }
 }
 

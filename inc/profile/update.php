@@ -23,9 +23,8 @@ if (isset($_POST['update_profile'])) {
 
   echo $_POST['profile_first_name'];
 
-  $db = Database::get_db();
 
-  $db->query_update('UPDATE users SET first_name=:first_name, last_name=:last_name, image=:image WHERE id=:id', $data);
+  $user->update_user($data);
 
   header('Location: ../../profile.php');
 }

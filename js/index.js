@@ -7,6 +7,7 @@ const regModal = document.querySelector('.modal-register');
 const modalLoginBtn = document.querySelector('.login-btn');
 const modalRegBtn = document.querySelector('.register-btn');
 const logoutBtn = document.querySelector('.logout-btn');
+const questions = document.querySelectorAll('.question-item');
 
 if (authBtn) {
   authBtn.addEventListener('click', () => {
@@ -52,5 +53,16 @@ if (logoutBtn) {
         window.open('/bar/index.php', '_self');
       })
       .catch((e) => console.log(e));
+  });
+}
+
+// check if its a right page
+if (location.href.includes('about')) {
+  questions.forEach((q) => {
+    q.addEventListener('click', (e) => {
+      if (e.target.classList.contains('question-title')) {
+        q.classList.toggle('open');
+      }
+    });
   });
 }
