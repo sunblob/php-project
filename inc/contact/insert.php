@@ -10,9 +10,8 @@ if (isset($_POST['contact_us'])) {
     'contact_message' => $_POST["contact_message"],
   ];
 
-  $db = Database::get_db();
+  $contact->create_contact($data);
 
-  $db->query_create("INSERT INTO contacts (name, email, message) VALUES (:contact_name, :contact_email, :contact_message)", $data);
   header("Location: ../../index.php");
 } else {
   print_r("Error sending the form");

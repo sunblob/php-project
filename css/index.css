@@ -4,6 +4,7 @@
 @import url('_footer.css');
 @import url('_form.css');
 @import url('_core.css');
+@import url('_admin.css');
 
 :root {
   font-family: sans-serif;

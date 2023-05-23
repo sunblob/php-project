@@ -7,3 +7,4 @@ require_once('utils.php');
 require_once('category.php');
 require_once('user.php');
 require_once('qna.php');
+require_once('contacts.php');

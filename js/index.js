@@ -16,36 +16,38 @@ if (authBtn) {
   });
 }
 
-modal.addEventListener('click', (e) => {
-  if (e.target != modal) return;
+if (modal) {
+  modal.addEventListener('click', (e) => {
+    if (e.target != modal) return;
 
-  modal.classList.remove('open');
-});
+    modal.classList.remove('open');
+  });
 
-modalClose.addEventListener('click', (e) => {
-  modal.classList.remove('open');
-});
+  modalClose.addEventListener('click', (e) => {
+    modal.classList.remove('open');
+  });
 
-modalTitle.textContent = 'Login';
-
-modalLoginBtn.addEventListener('click', () => {
   modalTitle.textContent = 'Login';
 
-  regModal.classList.remove('show');
-  regModal.classList.add('hide');
+  modalLoginBtn.addEventListener('click', () => {
+    modalTitle.textContent = 'Login';
 
-  loginModal.classList.add('show');
-  loginModal.classList.remove('hide');
-});
+    regModal.classList.remove('show');
+    regModal.classList.add('hide');
 
-modalRegBtn.addEventListener('click', () => {
-  modalTitle.textContent = 'Register';
+    loginModal.classList.add('show');
+    loginModal.classList.remove('hide');
+  });
 
-  loginModal.classList.remove('show');
-  loginModal.classList.add('hide');
-  regModal.classList.remove('hide');
-  regModal.classList.add('show');
-});
+  modalRegBtn.addEventListener('click', () => {
+    modalTitle.textContent = 'Register';
+
+    loginModal.classList.remove('show');
+    loginModal.classList.add('hide');
+    regModal.classList.remove('hide');
+    regModal.classList.add('show');
+  });
+}
 
 if (logoutBtn) {
   logoutBtn.addEventListener('click', () => {

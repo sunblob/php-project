@@ -23,7 +23,7 @@ class Product
 
   function update_product(mixed $data)
   {
-    $query = 'UPDATE categories SET name=:name, description=:description, price=:price, in_stock=:in_stock, image=:image, category_id=:category_id WHERE id=:id';
+    $query = 'UPDATE products SET name=:name, description=:description, price=:price, in_stock=:in_stock, image=:image, category_id=:category_id WHERE id=:id';
 
     $this->db->query_update($query, $data);
   }

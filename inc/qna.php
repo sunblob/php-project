@@ -23,7 +23,7 @@ class QNA
 
   function update_qna(mixed $data)
   {
-    $query = "INSERT INTO qna (question, answer) VALUES (:question, :answer)";
+    $query = "UPDATE qna SET question=:question, answer=:answer WHERE id=:id";
 
     $this->db->query_update($query, $data);
   }
