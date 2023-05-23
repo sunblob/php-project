@@ -13,6 +13,8 @@ if ($current_user == null || $current_user->role != 'ADMIN') {
   header("Location: no-permission.php");
 }
 
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 ?>
 
 <?php
@@ -42,7 +44,7 @@ include('partials/admin/header.php');
                   </div>
                   <div class="form-input-group">
                     <label for="" class="form-label">Answer</label>
-                    <textarea class="form-input" name="question" id="question" placeholder="Answer" required></textarea>
+                    <textarea class="form-input" name="answer" id="answer" placeholder="Answer" required></textarea>
                   </div>
                   <div class="form-input-group">
                     <input class="btn" type="submit" value="Add" name="add_qna">
@@ -64,16 +66,20 @@ include('partials/admin/header.php');
                     echo '<div>' . $q->question . '</div>';
                     echo '<div>' . $q->answer . '</div>';
                     echo '<div>
-                            <form action="inc/qna/update.php" method="post">
-                              <input type="submit" value="Edit" value="update_qna">
-                            </form>
-                          </div>';
-                    echo '<div>
                             <form action="inc/qna/delete.php" method="post">
-                              <input type="submit" value="Delete" value="delete_qna">
+                              <button type="submit" value="' . $q->id . '" name="delete_qna">Delete</button>
                             </form>
                           </div>';
 
+                    echo '</div>';
+
+                    echo '<div class="admin-edit-row">';
+                    echo '<form method="post" action="inc/qna/update.php">
+                            <input type="text" value="' . $q->question . '" name="update_question">
+                            <input type="text" value="' . $q->answer . '" name="update_answer">
+                            <input type="hidden" value="' . $q->id . '" name="qna_id">
+                            <input type="submit" value="Edit" name="update_qna">
+                          </form>';
                     echo '</div>';
                   }
 
@@ -112,7 +118,7 @@ include('partials/admin/header.php');
                     echo '<div>' . $c->message . '</div>';
                     echo '<div>
                             <form action="inc/contact/delete.php" method="post">
-                              <input type="submit" value="Delete" value="delete_contact">
+                              <button type="submit" value="' . $c->id . '" name="delete_contact">Delete</button>
                             </form>
                           </div>';
 
@@ -173,16 +179,21 @@ include('partials/admin/header.php');
                     echo '<div>' . $cat->name . '</div>';
                     echo '<div>' . $cat->description . '</div>';
                     echo '<div>
-                            <form action="inc/category/update.php" method="post">
-                              <input type="submit" value="Edit" value="update_category">
-                            </form>
-                          </div>';
-                    echo '<div>
                             <form action="inc/category/delete.php" method="post">
-                              <input type="submit" value="Delete" value="delete_category">
+                              <button type="submit" value="' . $cat->id . '" name="delete_category">Delete</button>
                             </form>
                           </div>';
 
+                    echo '</div>';
+
+                    echo '<div class="admin-edit-row">';
+                    echo '<form method="post" action="inc/category/update.php">
+                            <input type="text" value="' . $cat->name . '" name="category_name" required>
+                            <input type="text" value="' . $cat->description . '" name="category_description">
+                            <input type="text" value="' . $cat->image . '" name="category_image" required>
+                            <input type="hidden" value="' . $cat->id . '" name="category_id">
+                            <input type="submit" value="Edit" name="update_category">
+                          </form>';
                     echo '</div>';
                   }
 
@@ -203,7 +214,7 @@ include('partials/admin/header.php');
             <div class="admin-table product">
               <div class="admin-add">
                 <h3>Add product</h3>
-                <form method="post" action="inc/product/insert.php">
+                <form method="post" action="inc/products/insert.php">
                   <div class="form-input-group">
                     <label for="" class="form-label">Name</label>
                     <input class="form-input" type="text" name="product_name" id="product_name" placeholder="Name" required>
@@ -269,16 +280,38 @@ include('partials/admin/header.php');
                     echo '<div>' . $p->in_stock . '</div>';
                     echo '<div>' . $p->category_id . '</div>';
                     echo '<div>
-                            <form action="inc/product/update.php" method="post">
-                              <input type="submit" value="Edit" value="update_product">
-                            </form>
-                          </div>';
-                    echo '<div>
-                            <form action="inc/product/delete.php" method="post">
-                              <input type="submit" value="Delete" value="delete_product">
+                            <form action="inc/products/delete.php" method="post">
+                              <button type="submit" value="' . $p->id . '" name="delete_product">Delete</button>
                             </form>
                           </div>';
 
+                    echo '</div>';
+
+                    echo '<div class="admin-edit-row">';
+                    echo '<form method="post" action="inc/products/update.php">
+                            <input type="text" value="' . $p->name . '" name="product_name" required>
+                            <input type="text" value="' . $p->description . '" name="product_description">
+                            <input type="text" value="' . $p->image . '" name="product_image" required>
+                            <input type="number" min="1" value="' . $p->price . '" name="product_price" required>';
+                    if ($p->in_stock == 1) {
+                      echo '<input type="checkbox" name="product_stock" checked>';
+                    } else {
+                      echo '<input type="checkbox" name="product_stock">';
+                    }
+
+                    $cat_list = $category->get_categories();
+                    echo '<select name="product_category">';
+                    foreach ($cat_list as $cat) {
+                      if ($cat->id == $p->category_id) {
+                        echo '<option value="' . $cat->id . '" selected>' . $cat->name . '</option>';
+                      } else {
+                        echo '<option value="' . $cat->id . '">' . $cat->name . '</option>';
+                      }
+                    }
+                    echo '</select>';
+                    echo ' <input type="hidden" value="' . $p->id . '" name="product_id">
+                            <input type="submit" value="Edit" name="update_product">
+                          </form>';
                     echo '</div>';
                   }
 

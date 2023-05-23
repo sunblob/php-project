@@ -7,6 +7,7 @@ if (isset($_POST['add_qna'])) {
     "answer" => $_POST['answer']
   ];
 
+
   $qna->create_qna($data);
 
   header("Location: ../../admin.php");

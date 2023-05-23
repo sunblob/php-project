@@ -13,7 +13,8 @@
   --light-color: #fffff5db;
 }
 
-.modal {
+.modal,
+.edit-modal {
   position: fixed;
   inset: 0 0 0 0;
   display: flex;
@@ -25,7 +26,8 @@
   transition: all 0.3s ease-out;
 }
 
-.modal.open {
+.modal.open,
+.edit-modal.open {
   opacity: 1;
   pointer-events: all;
 }
@@ -39,13 +41,15 @@
   padding: 16px;
 }
 
-.modal-title {
+.modal-title,
+.edit-modal-title {
   font-size: 24px;
   font-weight: bold;
   text-align: center;
 }
 
-.modal-close {
+.modal-close,
+.edit-modal-close {
   position: absolute;
   width: 22px;
   height: 22px;
@@ -153,7 +157,7 @@
 }
 
 .accordion.open .accordion-body {
-  max-height: 540px;
+  max-height: 1000px;
 }
 
 .question-item {

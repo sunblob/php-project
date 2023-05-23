@@ -16,7 +16,7 @@ if (authBtn) {
   });
 }
 
-if (modal) {
+if (modal && !location.href.includes('admin')) {
   modal.addEventListener('click', (e) => {
     if (e.target != modal) return;
 

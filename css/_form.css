@@ -38,3 +38,11 @@ select {
   padding: 6px;
   border: 1px solid black;
 }
+
+.modal-form {
+  display: none;
+}
+
+.modal-form.show {
+  display: block;
+}

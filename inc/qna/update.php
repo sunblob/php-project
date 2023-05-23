@@ -3,7 +3,7 @@ require('../config.php');
 
 if (isset($_POST['update_qna'])) {
   $data = [
-    "id" => $_POST['form_id'],
+    "id" => $_POST['qna_id'],
     "question" => $_POST['update_question'],
     "answer" => $_POST['update_answer']
   ];

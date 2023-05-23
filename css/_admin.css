@@ -42,7 +42,7 @@
 }
 
 .admin-info.qna {
-  grid-template-columns: 50px 300px 1fr 50px 50px;
+  grid-template-columns: 50px 300px 1fr 50px;
 }
 
 .admin-table.contact {
@@ -54,11 +54,11 @@
 }
 
 .admin-info.category {
-  grid-template-columns: 50px 150px 80px 1fr 50px 50px;
+  grid-template-columns: 50px 150px 80px 1fr 50px;
 }
 
 .admin-info.product {
-  grid-template-columns: 50px 150px 80px 1fr 60px 50px 1fr 50px 50px;
+  grid-template-columns: 50px 150px 80px 1fr 60px 80px 90px 50px;
 }
 
 .admin-row {
@@ -78,7 +78,7 @@
 }
 
 .admin-row.qna {
-  grid-template-columns: 50px 300px 1fr 50px 50px;
+  grid-template-columns: 50px 300px 1fr 50px;
 }
 
 .admin-row.contact {
@@ -86,11 +86,11 @@
 }
 
 .admin-row.category {
-  grid-template-columns: 50px 150px 80px 1fr 50px 50px;
+  grid-template-columns: 50px 150px 80px 1fr 50px;
 }
 
 .admin-row.product {
-  grid-template-columns: 50px 150px 80px 1fr 60px 50px 1fr 50px 50px;
+  grid-template-columns: 50px 150px 80px 1fr 60px 80px 90px 50px;
 }
 
 .admin-row-image {
