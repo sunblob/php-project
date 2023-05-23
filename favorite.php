@@ -11,7 +11,7 @@ $fav_products = $product->get_favorite_products($_SESSION['id']);
     <div class="product-list">
       <?php
 
-      print_filtered_products($fav_products);
+      print_favorite_products($fav_products);
 
       ?>
     </div>

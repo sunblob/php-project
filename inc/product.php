@@ -112,3 +112,36 @@ function print_filtered_products($products, $show_fav = false)
     echo '</div>';
   }
 }
+
+function print_favorite_products($favorite)
+{
+  foreach ($favorite as $p) {
+    echo '<div class="product-item">';
+
+    echo '<img class="product-item__image" src="' . $p->image . '" alt="image">';
+    echo '<div class="product-item__info">';
+    echo '<div class="flex space-between align-center">';
+    echo '<h3 class="product-name">' . $p->name . '</h3>';
+
+    echo '<form method="post" action="inc/products/remove-fav.php" class="fav-form">';
+    echo '<input class="fav-icon" type="image" id="remove-fav" name="remove-fav" src="images/icons/heart.svg">';
+    echo '<input type="hidden" name="user_id" value="' . $_SESSION['id'] . '" >';
+    echo '<input type="hidden" name="product_id" value="' . $p->id . '" >';
+    echo '</form>';
+
+    echo '</div>';
+    echo '<div class="product-description">' . $p->description . '</div>';
+
+    echo '<div class="flex space-between">';
+    echo '<div class="product-price">' . $p->price . ' €</div>';
+    if ($p->in_stock) {
+      echo '<div class="product-stock">In stock</div>';
+    } else {
+      echo '<div class="product-stock">Out of stock</div>';
+    }
+    echo '</div>';
+
+    echo '</div>';
+    echo '</div>';
+  }
+}
