@@ -32,24 +32,23 @@ class QNA
   {
     $this->db->query_delete("DELETE FROM qna WHERE id=" . $id);
   }
-
-  function print_qna()
-  {
-    $question_list = $this->get_qna();
-
-    foreach ($question_list as $question) {
-      echo '<div class="question-item">';
-      // question title
-      echo '<div class="question-title">' . $question->question . '</div>';
-
-      // question body
-      echo '<div class="question-answer">';
-      echo ' <div class="answer">' . $question->answer . '</div>';
-      echo '</div>';
-
-      echo '</div>';
-    }
-  }
 }
 
 $qna = new QNA();
+
+
+function print_qna($qna)
+{
+  foreach ($qna as $question) {
+    echo '<div class="accordion">';
+    // question title
+    echo '<div class="accordion-title">' . $question->question . '</div>';
+
+    // question body
+    echo '<div class="accordion-body">';
+    echo ' <div class="answer">' . $question->answer . '</div>';
+    echo '</div>';
+
+    echo '</div>';
+  }
+}

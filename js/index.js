@@ -7,7 +7,7 @@ const regModal = document.querySelector('.modal-register');
 const modalLoginBtn = document.querySelector('.login-btn');
 const modalRegBtn = document.querySelector('.register-btn');
 const logoutBtn = document.querySelector('.logout-btn');
-const questions = document.querySelectorAll('.question-item');
+const accordions = document.querySelectorAll('.accordion');
 const productNameInput = document.querySelector('#product_name');
 
 if (authBtn) {
@@ -60,10 +60,10 @@ if (logoutBtn) {
 }
 
 // check if its a right page
-if (location.href.includes('about')) {
-  questions.forEach((q) => {
+if (location.href.includes('about') || location.href.includes('admin')) {
+  accordions.forEach((q) => {
     q.addEventListener('click', (e) => {
-      if (e.target.classList.contains('question-title')) {
+      if (e.target.classList.contains('accordion-title')) {
         q.classList.toggle('open');
       }
     });

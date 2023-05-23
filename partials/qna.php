@@ -3,7 +3,8 @@
   <div class="question-list">
     <?php
 
-    $qna->print_qna();
+    $qna_list = $qna->get_qna();
+    print_qna($qna_list);
 
     ?>
   </div>

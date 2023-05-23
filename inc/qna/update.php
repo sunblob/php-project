@@ -8,7 +8,9 @@ if (isset($_POST['update_qna'])) {
     "answer" => $_POST['update_answer']
   ];
 
-  $qna->update_qna($data);
+  if (!empty($data['question']) || !empty($data['answer'])) {
+    $qna->update_qna($data);
+  }
 
   header("Location: ../../admin.php");
 }

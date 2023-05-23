@@ -1,3 +1,1 @@
-# ERD
-
-![image info](./erd.png)
+PHP project "Bar"
