@@ -8,6 +8,7 @@ const modalLoginBtn = document.querySelector('.login-btn');
 const modalRegBtn = document.querySelector('.register-btn');
 const logoutBtn = document.querySelector('.logout-btn');
 const questions = document.querySelectorAll('.question-item');
+const productNameInput = document.querySelector('#product_name');
 
 if (authBtn) {
   authBtn.addEventListener('click', () => {
@@ -64,5 +65,11 @@ if (location.href.includes('about')) {
         q.classList.toggle('open');
       }
     });
+  });
+}
+
+if (productNameInput) {
+  productNameInput.addEventListener('blur', (e) => {
+    productNameInput.value = productNameInput.value.trim();
   });
 }

@@ -60,7 +60,7 @@ class Product
 
   function get_favorite_products($user_id)
   {
-    $query = 'SELECT *, p.image as image FROM products p JOIN favorite_products fp ON p.id = fp.product_id JOIN users u ON u.id = fp.user_id WHERE u.id=' . $user_id;
+    $query = 'SELECT p.id, p.name, p.description, p.price, p.in_stock, p.image, p.category_id FROM products p JOIN favorite_products fp ON p.id = fp.product_id JOIN users u ON u.id = fp.user_id WHERE u.id=' . $user_id;
 
     return $this->db->query_select($query);
   }
@@ -81,7 +81,7 @@ function print_filtered_products($products, $show_fav = false)
     if ($show_fav) {
       if ($p->is_favorite) {
         echo '<form method="post" action="inc/products/remove-fav.php" class="fav-form">';
-        echo '<input class="fav-icon" type="image" id="add-fav" name="add-fav" src="images/icons/heart.svg">';
+        echo '<input class="fav-icon" type="image" id="remove-fav" name="remove-fav" src="images/icons/heart.svg">';
         echo '<input type="hidden" name="user_id" value="' . $_SESSION['id'] . '" >';
         echo '<input type="hidden" name="product_id" value="' . $p->id . '" >';
         echo '</form>';

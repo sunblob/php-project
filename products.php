@@ -6,8 +6,6 @@ $filtered_products = $product->get_filtered_products($_GET['product_name'], $_GE
 
 $favorite = [];
 
-
-
 if (isset($_SESSION['id'])) {
   // map the return value so we only take ids 
   $favorite = array_map(fn ($value) => $value->id, $product->get_favorite_products($_SESSION['id']));
