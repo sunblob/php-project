@@ -2,7 +2,19 @@
 
 include('partials/header.php');
 
-$filtered_products = $product->get_filtered_products($_GET['product_name'], $_GET['category']);
+$product_name = '';
+
+if (isset($_GET['product_name'])) {
+  $product_name = $_GET['product_name'];
+}
+
+$category_id =  '';
+
+if (isset($_GET['category'])) {
+  $category_id = $_GET['category'];
+}
+
+$filtered_products = $product->get_filtered_products($product_name, $category_id);
 
 $favorite = [];
 

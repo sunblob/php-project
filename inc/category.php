@@ -32,21 +32,20 @@ class Category
   {
     $this->db->query_delete("DELETE FROM categories WHERE id=" . $id);
   }
-
-  function print_categories()
-  {
-    $categories = $this->get_categories();
-
-    echo '<div class="category-list">';
-
-    foreach ($categories as $item) {
-      echo '<div class="category-item" style="background-image: url(\'' . $item->image . '\')">' . $item->name;
-      echo '<a class="btn" href="products.php?category=' . $item->id . '">Go to</a>';
-      echo '</div>';
-    }
-
-    echo '</div>';
-  }
 }
 
 $category = new Category();
+
+function print_categories($categories)
+{
+  echo '<div class="category-list">';
+
+  foreach ($categories as $item) {
+    echo '<div class="category-item" style="background-image: url(\'' . $item->image . '\')">';
+    echo '<h2 class="category-name">' . $item->name . '</h2>';
+    echo '<a class="btn category-btn" href="products.php?category=' . $item->id . '">Visit</a>';
+    echo '</div>';
+  }
+
+  echo '</div>';
+}

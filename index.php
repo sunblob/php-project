@@ -10,7 +10,7 @@ include('partials/header.php');
   </section>
   <section class="container">
     <?php
-    $category->print_categories();
+    print_categories($category->get_categories());
     ?>
   </section>
 
