@@ -1,13 +1,13 @@
 <?php
-include('inc/config.php');
 include('partials/header.php');
 
 ?>
 
 <main>
-  <section class="banner">
+  <?php
 
-  </section>
+  include('partials/banner.php');
+  ?>
   <section class="container">
     <?php
     print_categories($category->get_categories());
